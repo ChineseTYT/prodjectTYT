@@ -1,0 +1,93 @@
+/* CSS страницы «Подать заявку» */
+
+.application-form {
+    max-width: 750px;
+    margin: 10px auto 40px;
+    padding: 35px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0,0,0,.08);
+}
+
+.application-form h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    margin-bottom: 22px;
+}
+
+.form-group label,
+.payment-title {
+    display: block;
+    margin-bottom: 9px;
+    font-weight: 600;
+}
+
+.application-form select,
+.application-form input[type="date"] {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    background: #fff;
+}
+
+.payment-options {
+    display: flex;
+    gap: 55px;
+}
+
+.payment-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    cursor: pointer;
+}
+
+.payment-option input {
+    margin-top: 4px;
+}
+
+.submit-application {
+    width: 100%;
+    border: 0;
+    padding: 13px 20px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+    background: #7700ff;
+    color: #fff;
+}
+
+.submit-application:hover {
+    background: #7700ff;
+}
+
+.submit-application:disabled {
+    opacity: .65;
+    cursor: wait;
+}
+
+.form-message {
+    display: none;
+    margin-top: 18px;
+    padding: 12px;
+    border-radius: 5px;
+    text-align: center;
+    background: #eeeaf7;
+}
+
+@media (max-width: 600px) {
+    .application-form {
+        margin: 0 0 30px;
+        padding: 22px;
+    }
+
+    .payment-options {
+        flex-direction: column;
+        gap: 15px;
+    }
+}

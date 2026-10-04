@@ -1,0 +1,53 @@
+<!DOCTYPE html><html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Мои заявки — AniSport</title><link rel="stylesheet" href="css2/style3.css"><style>
+.applications-page{min-height:calc(100vh - 76px);padding:76px 24px 110px;background:radial-gradient(circle at 50% 32%,rgba(32,83,255,.23),transparent 28%),radial-gradient(circle at 80% 85%,rgba(0,174,255,.08),transparent 24%),linear-gradient(145deg,#080e18,#0c1320 52%,#080c15);color:#fff;position:relative;overflow:hidden}.applications-page:before{content:'';position:absolute;width:560px;height:560px;left:-180px;top:130px;background:radial-gradient(circle,rgba(74,55,255,.16),transparent 68%);pointer-events:none}.applications-shell{max-width:1240px;margin:auto;position:relative;z-index:1}.applications-head{display:flex;align-items:flex-end;justify-content:space-between;gap:30px;margin-bottom:54px}.applications-eyebrow{font-size:11px;letter-spacing:3px;font-weight:900;color:#fff;margin-bottom:12px}.applications-head h1{font-size:58px;line-height:.95;letter-spacing:-3px;margin:0}.applications-head h1 span{color:#1d6cff}.applications-head p{margin:17px 0 0;color:#8290a6;font-size:14px}.applications-new-btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:0 26px;border-radius:9px;background:linear-gradient(135deg,#1766ff,#268aff);color:#fff;font-weight:800;box-shadow:0 10px 30px rgba(18,100,255,.3);transition:.2s}.applications-new-btn:hover{transform:translateY(-2px);box-shadow:0 14px 38px rgba(18,100,255,.45)}.applications-table-card{background:#fff;color:#111;border-radius:14px;overflow:hidden;border:1px solid rgba(65,176,255,.9);box-shadow:0 0 0 2px rgba(31,147,255,.12),0 0 35px rgba(0,119,255,.35),0 25px 70px rgba(0,0,0,.35)}.applications-table-head,.application-row{display:grid;grid-template-columns:2.2fr .78fr .72fr .58fr 1.7fr;align-items:center}.applications-table-head{min-height:57px;padding:0 22px;border-bottom:1px solid #e6e8ed;color:#6e727a;font-size:11px;letter-spacing:1.3px}.application-row{min-height:104px;padding:16px 22px;border-bottom:1px solid #e8e9ed;gap:14px}.application-row:last-child{border-bottom:0}.application-plan{display:flex;align-items:center;gap:13px;min-width:0}.application-plan b{display:block;font-size:14px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.application-plan small{display:block;color:#9298a1;font-size:10px;margin-top:6px}.plan-mini{width:38px;height:38px;flex:none;border-radius:10px;display:grid;place-items:center;background:linear-gradient(135deg,#111a32,#176cff);color:#65cfff;font-size:10px;font-weight:900;box-shadow:0 5px 15px rgba(23,108,255,.22)}.application-date,.application-payment{font-size:13px;color:#24272d}.application-status{display:inline-flex;padding:8px 13px;border-radius:20px;background:#edf4ff;color:#1264ff;font-weight:800;font-size:11px}.application-feedback{display:flex;align-items:center;gap:9px}.application-feedback textarea{width:100%;height:58px;resize:none;border:1px solid #dedfe3;border-radius:9px;padding:11px 12px;font:12px Arial;color:#222;outline:none;background:#fafafa;transition:.2s}.application-feedback textarea:focus{border-color:#3989ff;box-shadow:0 0 0 3px rgba(57,137,255,.1)}.feedback-btn{height:58px;min-width:133px;border:0;border-radius:9px;background:#111;color:#fff;font-weight:800;font-size:11px;cursor:pointer;transition:.2s}.feedback-btn:hover{background:#1264ff;transform:translateY(-1px)}.feedback-btn.sent{background:#168c52}.applications-empty{padding:75px 20px;text-align:center}.empty-icon{width:55px;height:55px;margin:auto;border-radius:50%;display:grid;place-items:center;background:#edf4ff;color:#1264ff;font-size:28px}.applications-empty h3{font-size:22px;margin:18px 0 7px}.applications-empty p{color:#777;margin:0 0 25px}.applications-empty .applications-new-btn{min-height:46px}.applications-empty a{color:#fff!important}@media(max-width:900px){.applications-head{align-items:flex-start;flex-direction:column}.applications-table-card{overflow-x:auto}.applications-table-head,.application-row{min-width:1050px}.applications-head h1{font-size:48px}}@media(max-width:600px){.applications-page{padding:55px 15px 80px}.applications-head h1{font-size:42px}.applications-new-btn{width:100%}}
+</style></head><body>
+<header class="site-header"><div class="header-content"><a class="brand" href="index.html"><span class="brand-mark">A</span><span>Ani<span>Sport</span></span></a><nav><a href="index.html#plans">Абонементы</a><a href="index.html#classes">Занятия</a></nav><div class="header-actions"><a href="index.html" class="btn btn-blue">На главную</a></div></div></header>
+<main class="applications-page">
+  <div class="applications-shell">
+    <div class="applications-head">
+      <div>
+        <div class="applications-eyebrow">ЛИЧНЫЙ КАБИНЕТ</div>
+        <h1>Мои <span>заявки</span></h1>
+        <p>Здесь отображаются выбранные абонементы и их текущий статус.</p>
+      </div>
+      <a href="create-application_final.html" class="applications-new-btn">+&nbsp; Новый абонемент</a>
+    </div>
+
+    <div class="applications-table-card">
+      <div class="applications-table-head">
+        <div>АБОНЕМЕНТ</div><div>ДАТА НАЧАЛА</div><div>ОПЛАТА</div><div>СТАТУС</div><div>ОТЗЫВ</div>
+      </div>
+      <div id="applicationsBody" class="applications-list"></div>
+    </div>
+  </div>
+</main>
+<footer><div class="copyright">© 2026 AniSport. Все права защищены.</div></footer>
+<script>
+function escapeHtml(t){const d=document.createElement('div');d.textContent=t??'';return d.innerHTML}
+function load(){
+  const apps=JSON.parse(localStorage.getItem('applications')||'[]');
+  const body=document.getElementById('applicationsBody');
+  if(!apps.length){
+    body.innerHTML='<div class="applications-empty"><div class="empty-icon">+</div><h3>Заявок пока нет</h3><p>Выберите абонемент, чтобы начать тренировки.</p><a href="create-application_final.html" class="applications-new-btn">Выбрать абонемент</a></div>';
+    return;
+  }
+  body.innerHTML=apps.map((a,i)=>`
+    <div class="application-row">
+      <div class="application-plan"><span class="plan-mini">ANI</span><div><b>${escapeHtml(a.course)}</b><small>Абонемент AniSport</small></div></div>
+      <div class="application-date">${escapeHtml(a.startDate || '—')}</div>
+      <div class="application-payment">${escapeHtml(a.payment || '—')}</div>
+      <div><span class="application-status">${escapeHtml(a.status || 'Новая')}</span></div>
+      <div class="application-feedback">
+        <textarea id="f${i}" placeholder="Ваш отзыв..." maxlength="180" disabled></textarea>
+        <button class="feedback-btn" onclick="feedback('f${i}',this)">Оставить отзыв</button>
+      </div>
+    </div>`).join('');
+}
+function feedback(id,b){
+  const t=document.getElementById(id);
+  if(t.disabled){t.disabled=false;t.focus();b.textContent='Отправить';return}
+  if(!t.value.trim())return;
+  t.disabled=true;b.textContent='Отправлено ✓';b.classList.add('sent');b.disabled=true;
+}
+load();
+</script></body></html>

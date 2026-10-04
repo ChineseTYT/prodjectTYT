@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Абонемент — AniSport</title><link rel="stylesheet" href="css2/style3.css"><script src="JS/codirovka.js" defer></script></head>
+<body>
+<header class="site-header"><div class="header-content"><a class="brand" href="index.html"><span class="brand-mark">A</span><span>Ani<span>Sport</span></span></a><nav><a href="index.html#advantages">Преимущества</a><a href="index.html#plans">Абонементы</a><a href="index.html#classes">Занятия</a></nav><div class="header-actions"><a href="my-applications_final.html" class="header-link">Мои заявки</a><a href="index.html" class="btn btn-blue">На главную</a></div></div></header>
+<main>
+<form class="application-form" id="applicationForm">
+<span class="eyebrow">AniSport MEMBERSHIP</span><h2>Оформление абонемента</h2>
+<p class="form-intro">Заполни форму — заявка сохранится в разделе «Мои заявки».</p>
+<div class="form-group"><label for="course">Абонемент *</label><select id="course" name="course" required><option value="">Выберите тариф...</option><option>Старт — 1999 ₽/мес.</option><option>Pro — 2999 ₽/мес.</option><option>Max — 3999 ₽/мес.</option></select></div>
+<div class="form-group"><label for="startDate">Дата начала *</label><input type="date" id="startDate" required></div>
+<div class="form-group"><span class="payment-title">Способ оплаты *</span><div class="payment-options"><label class="payment-option"><input type="radio" name="payment" value="Картой" required><span>Банковской картой</span></label><label class="payment-option"><input type="radio" name="payment" value="Наличными"><span>Наличными в клубе</span></label></div></div>
+<button class="submit-application" type="submit">Оформить абонемент →</button><div class="form-message" id="formMessage"></div>
+</form></main>
+<footer><div class="copyright">© 2026 AniSport. Все права защищены.</div></footer>
+<script>
+const params=new URLSearchParams(location.search), plan=params.get('plan');
+if(plan){document.getElementById('course').value=[...document.querySelectorAll('#course option')].find(o=>o.textContent.startsWith(plan))?.value||''}
+document.getElementById('applicationForm').addEventListener('submit',e=>{
+e.preventDefault();if(!e.target.checkValidity()){e.target.reportValidity();return}
+const course=document.getElementById('course').value,dateValue=document.getElementById('startDate').value,payment=document.querySelector('input[name="payment"]:checked').value;
+const date=dateValue.split('-').reverse().join('.'), application={id:Date.now(),course,startDate:date,payment,status:'Новая'};
+const applications=JSON.parse(localStorage.getItem('applications')||'[]');applications.push(application);localStorage.setItem('applications',JSON.stringify(applications));
+const m=document.getElementById('formMessage');m.innerHTML='Готово! Заявка №<b>'+application.id+'</b> создана. <a href="my-applications_final.html">Перейти к заявкам →</a>';m.style.display='block';e.target.reset();
+});
+</script></body></html>

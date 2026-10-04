@@ -1,0 +1,1 @@
+function showToast(text){const t=document.getElementById('toast');if(!t)return;t.textContent=text;t.classList.remove('hidden');setTimeout(()=>t.classList.add('hidden'),2500)}
